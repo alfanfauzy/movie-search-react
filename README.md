@@ -1,5 +1,7 @@
 # MOVIE SEARCH
 
+![Movie Favorite](https://raw.githubusercontent.com/alfanfauzy/movie-search-react/master/screenshoot/movie-favorite.png)
+
 Movie Search is a website which allow user to search movie , view detail movie and add movie to their favorite. This website development with Create-React-App.
 
 Use API from [OMDBAPI](http://www.omdbapi.com/)

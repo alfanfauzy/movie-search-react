@@ -10,6 +10,7 @@ const Search = (props) => {
     };
     
     const handleButtonSearch = (e) => {
+        console.log(e.length);
          props.search(valueSearch);
     };
 

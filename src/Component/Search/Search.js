@@ -26,7 +26,7 @@ const Search = (props) => {
               />
               <div className="input-group-append">
                 <Button
-                  variant="outline-primary"
+                  variant="primary"
                   id="basic-addon2"
                   onClick={handleButtonSearch}
                 >

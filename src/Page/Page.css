@@ -1,17 +1,41 @@
 .content{
-  height: 100vh;
+  height: 100%;
   text-align: center;
-  padding: 50px;
+}
+
+img{
+  -webkit-box-shadow: -1px 7px 21px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 7px 21px -1px rgba(0,0,0,0.75);
+  box-shadow: -1px 7px 21px -1px rgba(0,0,0,0.75);
 }
 
 .container{
   height: 100%;
-  background-color: azure;
-  padding: 15px;
-  border: 2px solid coral;
-  border-radius: 5px;
+  border: 2px solid #753192;
+  border-radius: 3px;
 }
 
-.nav{
-  margin-bottom: 100px;
+table td a{
+  color: #753192;
+  text-decoration: none !important;
+}
+
+.nav a{
+  color: #753192;
+  font-weight: 600;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #753192 !important ;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: white !important;
+  background-color:  #753192 !important;
+  border-color: #753192 !important;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+  color: #753192;
+  border-color: #753192 !important;
 }

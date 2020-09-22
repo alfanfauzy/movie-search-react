@@ -4,9 +4,15 @@ import './index.css';
 import Page from './Page/Page';
 import * as serviceWorker from './serviceWorker';
 
+// Redux
+import movieRedux from './store';
+import { Provider } from 'react-redux';
+
 ReactDOM.render(
   <React.StrictMode>
-    <Page />
+    <Provider store={movieRedux}>  
+      <Page />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

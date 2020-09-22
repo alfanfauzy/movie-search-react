@@ -2,16 +2,23 @@ import React, {useState} from 'react'
 
 import {Button } from "react-bootstrap";
 
+// Import Toast Component
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Search = (props) => {
     const [valueSearch, setValueSearch] = useState("");
 
-    const handleInputSearch = (e) => {
-        setValueSearch(e.target.value);
+    const handleInputSearch = (e) => { 
+      setValueSearch(e.target.value);
     };
-    
+
     const handleButtonSearch = (e) => {
-        console.log(e.length);
-         props.search(valueSearch);
+      if(valueSearch.length !== 0){
+        props.search(valueSearch);
+      }else{
+        toast.error("❌ Please fill the input search");
+      }
     };
 
     return (
@@ -36,6 +43,17 @@ const Search = (props) => {
               </div>
             </div>
           </form>
+          <ToastContainer
+            position="top-right"
+            autoClose={2500}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            />
         </div>
     )
 }

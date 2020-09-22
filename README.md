@@ -27,6 +27,7 @@ Use API from [OMDBAPI](http://www.omdbapi.com/)
 | React-Bootstrap | [react-bootstrap](https://github.com/react-bootstrap/react-bootstrap) |
 | React-Icon | [react-icon](https://react-icons.github.io/react-icons/) |
 | React-Redux | [react-redux](https://github.com/reduxjs/react-redux) |
+| React-Toastify | [react-toastify](https://github.com/fkhadra/react-toastify) |
 
 ## Installation
 

@@ -186,7 +186,6 @@ const View = (props) => {
           {showMovie(getTab, props.movies)}
         </tbody>
       </Table>
-
     </div>
   )
 }

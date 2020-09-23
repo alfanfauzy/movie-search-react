@@ -1,4 +1,4 @@
-# MOVIE SEARCH
+# 🎞️ MOVIE SEARCH 🎞️
 
 ![Movie Favorite](https://raw.githubusercontent.com/alfanfauzy/movie-search-react/master/screenshoot/Screencapture.gif)
 
@@ -6,7 +6,7 @@ Movie Search is a website which allow user to search movie , view detail movie a
 
 Use API from [OMDBAPI](http://www.omdbapi.com/)
 
-# Features!
+# 📌 Features!
 
   - Show List all movie on each search
   - Allow users to click and see a complete description on modal pop up
@@ -14,13 +14,13 @@ Use API from [OMDBAPI](http://www.omdbapi.com/)
   - Users are allowed to check their favorite movie and remove their favorite
   - Store the favourite movies on the browser local storage
 
-## Tech
+## ⚒️ Tech
 
 * [ReactJS](https://breakdance.github.io/breakdance/)
 * [Redux](https://www.github.com/reduxjs/redux)
 * [Bootstrap](https://github.com/react-bootstrap/react-bootstrap)
 
-## Plugins
+## 💌 Plugins
 
 | Dependency | README |
 | ------ | ------ |
@@ -29,7 +29,7 @@ Use API from [OMDBAPI](http://www.omdbapi.com/)
 | React-Redux | [react-redux](https://github.com/reduxjs/react-redux) |
 | React-Toastify | [react-toastify](https://github.com/fkhadra/react-toastify) |
 
-## Installation
+## 📗 Installation
 
 Install the dependencies and start the app.
 

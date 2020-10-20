@@ -131,14 +131,14 @@ const View = (props) => {
             return getMovieFavorite.map((movie, index) => (
               <tr key={index}>
                 <td>
-                  <a
-                    href="/#"
+                  <button
+                    style={{ border: "none", background: "transparent" }}
                     onClick={() => {
                       showMovieById(movie.imdbID, true);
                     }}
                   >
                     {movie.Title}
-                  </a>
+                  </button>
                 </td>
                 <td>{movie.Year}</td>
                 <td>{movie.imdbID}</td>

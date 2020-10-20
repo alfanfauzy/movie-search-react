@@ -79,6 +79,7 @@ const View = (props) => {
           <tr key={index}>
             <td>
               <button
+                style={{ border: "none", background: "transparent" }}
                 onClick={() => {
                   showMovieById(movie.imdbID, true);
                 }}

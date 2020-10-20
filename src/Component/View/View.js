@@ -1,5 +1,5 @@
 //Import Component
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 
@@ -9,26 +9,23 @@ import {
   setImdbIdFavoriteToken,
   setMovieFavoriteToken,
   getMovieFavoriteToken,
-  removeMovieFavoriteToken
-}
-  from "../../utils/storage";
+  removeMovieFavoriteToken,
+} from "../../utils/storage";
 
 // Redux
-import { addMovieFavorite } from '../../store/action/movieAction';
-import { useSelector, useDispatch } from 'react-redux'
+import { addMovieFavorite } from "../../store/action/movieAction";
+import { useSelector, useDispatch } from "react-redux";
 
 const View = (props) => {
-
   //Initiation for redux
   const dispatch = useDispatch();
-  const movieFavorite = useSelector(state => state.movieFavorite);
+  const movieFavorite = useSelector((state) => state.movieFavorite);
 
   //Initiation variable to handle Tab
   const getTab = props.tab === "search" ? "search" : "favorite";
 
   //Initiation variable to get List Favorite Movie
   const getArrayMovieFavorite = getImdbIdFavoriteToken();
-
 
   // Handle Add Movie to Favorite with parameter imdbID & movie
   const addMovieToFavorite = (imdbID, movie) => {
@@ -66,85 +63,102 @@ const View = (props) => {
     } else {
       removeMovieFavoriteToken(imdbID);
     }
-  }
+  };
 
-  
   // Handle show detail movie in modal with parameter value model and boolean
   const showMovieById = (value, openModal) => {
     props.moviesDetail(value, openModal);
-  }
+  };
 
-  
   // Handle show list movie with parameter value tab and value movie
   const showMovie = (valueTab, valueMovie) => {
     if (valueMovie !== null) {
-
       // If value tab == search, show data movie from result fetch API
       if (valueTab === "search") {
-        return (
-          valueMovie.map((movie, index) => (
-            <tr key={index}>
-              <td><a href="/#" onClick={() => { showMovieById(movie.imdbID, true) }}>{movie.Title}</a></td>
-              <td>{movie.Year}</td>
-              <td>{movie.imdbID}</td>
-              <td>
-                {movieFavorite.includes(movie.imdbID) ? (
-                  <IoIosHeart
-                    onClick={() => addMovieToFavorite(movie.imdbID, movie)}
-                    style={{ color: 'red' }}
-                  />
-                ) : (
-                    <IoIosHeartEmpty
-                      onClick={() => addMovieToFavorite(movie.imdbID, movie)}
-                      style={{ color: 'red' }}
-                    />
-                  )}
-              </td>
-            </tr>
-          ))
-        )
-      
-      // If value tab == favorite, show data movie from local storage 
+        return valueMovie.map((movie, index) => (
+          <tr key={index}>
+            <td>
+              <button
+                onClick={() => {
+                  showMovieById(movie.imdbID, true);
+                }}
+              >
+                {movie.Title}
+              </button>
+            </td>
+            <td>{movie.Year}</td>
+            <td>{movie.imdbID}</td>
+            <td>
+              {movieFavorite.includes(movie.imdbID) ? (
+                <IoIosHeart
+                  onClick={() => addMovieToFavorite(movie.imdbID, movie)}
+                  style={{ color: "red" }}
+                />
+              ) : (
+                <IoIosHeartEmpty
+                  onClick={() => addMovieToFavorite(movie.imdbID, movie)}
+                  style={{ color: "red" }}
+                />
+              )}
+            </td>
+          </tr>
+        ));
+
+        // If value tab == favorite, show data movie from local storage
       } else {
         const getMovieFavorite = showMovieFavorite();
 
         // if user has not add movie to favorite show this.
-        if (getMovieFavorite === null || getMovieFavorite.length === 0 || getMovieFavorite === undefined) {
+        if (
+          getMovieFavorite === null ||
+          getMovieFavorite.length === 0 ||
+          getMovieFavorite === undefined
+        ) {
           return (
             <tr>
-              <td colSpan="4"><span style={{ textAlign: 'center' }}>Add movie to your favorite</span></td>
+              <td colSpan="4">
+                <span style={{ textAlign: "center" }}>
+                  Add movie to your favorite
+                </span>
+              </td>
             </tr>
-          )
+          );
 
-        // if user has add movie to favorite show list.
+          // if user has add movie to favorite show list.
         } else {
-
           if (getMovieFavorite !== null) {
-            return (
-              getMovieFavorite.map((movie, index) => (
-                <tr key={index}>
-                  <td><a href="/#" onClick={() => { showMovieById(movie.imdbID, true) }}>{movie.Title}</a></td>
-                  <td>{movie.Year}</td>
-                  <td>{movie.imdbID}</td>
-                  <td>
-                    {movieFavorite.includes(movie.imdbID) ? (
-                      <IoIosHeart
-                        onClick={() => addMovieToFavorite(movie.imdbID, movie)}
-                        style={{ color: 'red' }}
-                      />
-                    ) : (
-                        <p> - </p>
-                      )}
-                  </td>
-                </tr>
-              ))
-            )
+            return getMovieFavorite.map((movie, index) => (
+              <tr key={index}>
+                <td>
+                  <a
+                    href="/#"
+                    onClick={() => {
+                      showMovieById(movie.imdbID, true);
+                    }}
+                  >
+                    {movie.Title}
+                  </a>
+                </td>
+                <td>{movie.Year}</td>
+                <td>{movie.imdbID}</td>
+                <td>
+                  {movieFavorite.includes(movie.imdbID) ? (
+                    <IoIosHeart
+                      onClick={() => addMovieToFavorite(movie.imdbID, movie)}
+                      style={{ color: "red" }}
+                    />
+                  ) : (
+                    <p> - </p>
+                  )}
+                </td>
+              </tr>
+            ));
           }
           return null;
         }
       }
     }
-  }
+  };
 
   // Handle show list favorite movie.
   const showMovieFavorite = () => {
@@ -162,7 +176,7 @@ const View = (props) => {
     } else {
       return null;
     }
-  }
+  };
 
   // Handle useEffect, execute this when state movie favorite has update.
   useEffect(() => {
@@ -182,12 +196,10 @@ const View = (props) => {
             <th>#</th>
           </tr>
         </thead>
-        <tbody>
-          {showMovie(getTab, props.movies)}
-        </tbody>
+        <tbody>{showMovie(getTab, props.movies)}</tbody>
       </Table>
     </div>
-  )
-}
+  );
+};
 
-export default View
+export default View;

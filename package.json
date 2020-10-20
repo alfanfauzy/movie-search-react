@@ -1,7 +1,7 @@
 {
   "name": "movie-search",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://alfanfauzy.github.io/movie-search-react/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",

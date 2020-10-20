@@ -17,7 +17,7 @@ const Search = (props) => {
       if(valueSearch.length !== 0){
         props.search(valueSearch);
       }else{
-        toast.error("❌ Please fill the input search");
+        toast.error("⛔ Please fill the input search");
       }
     };
 
